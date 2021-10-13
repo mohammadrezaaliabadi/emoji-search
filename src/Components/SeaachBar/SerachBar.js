@@ -1,8 +1,7 @@
-import { useCallback, useContext, useState } from "react";
-import SearchContext from "../Context/SearchContext";
+import "./SearchBar.css";
+import { useCallback, useState } from "react";
 
-const SearchBar = ({ searchChangeInputHandler }) => {
-  const searchValue = useContext(SearchContext);
+const SearchBar = ({ searchChangeInputHandler, search }) => {
   const [searchClassName, setSearchClassName] = useState("");
 
   const searchIconHandler = useCallback(() => {
@@ -16,9 +15,9 @@ const SearchBar = ({ searchChangeInputHandler }) => {
   const clearHandlerClick = useCallback(
     (e) => {
       e.preventDefault();
-      searchValue.search.setSearchValue("");
+      search.setSearchValue("");
     },
-    [searchValue.search.searchValue]
+    [search]
   );
   return (
     <div className={`search ${searchClassName}`}>
@@ -28,7 +27,7 @@ const SearchBar = ({ searchChangeInputHandler }) => {
           type="text"
           placeholder="Search"
           onChange={searchChangeInputHandler}
-          value={searchValue.search.searchValue}
+          value={search?.searchValue}
           className="input-search"
         />
       </div>

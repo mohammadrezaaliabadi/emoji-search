@@ -2,9 +2,9 @@ import "./App.css";
 import { useCallback, useEffect, useState } from "react";
 import EMOJI from "./EMOJI.json";
 import SearchBar from "../SeaachBar/SerachBar";
-import Pagination from "../../Pagination/Pagination";
-import usePagination from "../../Pagination/usePagination";
-import ResultSearch from "../../ResultSearch/ResultSearch";
+import Pagination from "../Pagination/Pagination";
+import usePagination from "../Pagination/usePagination";
+import ResultSearch from "../ResultSearch/ResultSearch";
 function App() {
   const [data, setData] = useState([]);
   const [resultData, setResultData] = useState([]);
@@ -23,11 +23,8 @@ function App() {
       const value = e.target.value;
       setSearchValue(value);
       setResultData(
-        //data.filter((item) => item.keywords.includes(searchValue))
         data.filter(
-          (item) =>
-            item.keywords.split(" ").includes(value) ||
-            item.title.split(" ").includes(value)
+          (item) => item.keywords.includes(value) || item.title.includes(value)
         )
       );
     },

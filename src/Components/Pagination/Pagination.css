@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.pagination .page {
+  font-size: 14px;
+  padding: 0.9rem;
+  margin: 0.4rem;
+  border-radius: 100%;
+  line-height: 0.9rem;
+  background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+  border: 1px solid #0b8793;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: ease-in-out 0.3s all;
+}
+.pagination .page:hover,
+.pagination .page-active {
+  -webkit-text-fill-color: none;
+  border-color: #fff;
+  background-clip: border-box;
+  -webkit-text-fill-color: #fff;
+}
